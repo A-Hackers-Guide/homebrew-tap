@@ -1,0 +1,53 @@
+name: Update formula
+
+# Checks for a new sys1 release every hour and regenerates the formula
+# from the release's published SHA-256 checksums. Uses only this repo's
+# own token: no personal access token is needed.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (empty = latest)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regenerate formula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./scripts/update-formula.sh "${{ github.event.inputs.tag }}"
+      - name: Commit if changed
+        run: |
+          if git diff --quiet; then echo "Already up to date."; exit 0; fi
+          git config user.name "A-Hackers-Guide"
+          git config user.email "289517818+A-Hackers-Guide@users.noreply.github.com"
+          v=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/sys1.rb)
+          git commit -am "sys1 $v"
+          git push
+
+  test:
+    needs: update
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - name: Install and test from this tap
+        run: |
+          brew tap a-hackers-guide/tap "https://github.com/${{ github.repository }}"
+          brew install a-hackers-guide/tap/sys1
+          brew test a-hackers-guide/tap/sys1
