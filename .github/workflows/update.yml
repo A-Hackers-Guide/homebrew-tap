@@ -45,7 +45,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: Homebrew/actions/setup-homebrew@master
+      - uses: Homebrew/actions/setup-homebrew@main
       - name: Install and test from this tap
         run: |
           brew tap a-hackers-guide/tap "https://github.com/${{ github.repository }}"
