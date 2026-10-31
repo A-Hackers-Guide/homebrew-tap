@@ -2,7 +2,6 @@
 class Sys1 < Formula
   desc "Pool the spare power of every computer into one cloud"
   homepage "https://a-hackers-guide.github.io/sys1/"
-  version "0.1.0"
   license "Unlicense"
 
   on_macos do

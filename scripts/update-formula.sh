@@ -25,7 +25,6 @@ cat > "$(dirname "$0")/../Formula/sys1.rb" <<RUBY
 class Sys1 < Formula
   desc "Pool the spare power of every computer into one cloud"
   homepage "https://a-hackers-guide.github.io/sys1/"
-  version "$v"
   license "Unlicense"
 
   on_macos do

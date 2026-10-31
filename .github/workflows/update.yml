@@ -33,7 +33,7 @@ jobs:
           if git diff --quiet; then echo "Already up to date."; exit 0; fi
           git config user.name "A-Hackers-Guide"
           git config user.email "289517818+A-Hackers-Guide@users.noreply.github.com"
-          v=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/sys1.rb)
+          v=$(grep -o 'download/v[^/]*' Formula/sys1.rb | head -1 | cut -dv -f2)
           git commit -am "sys1 $v"
           git push
 
