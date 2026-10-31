@@ -34,7 +34,7 @@ class Sys1 < Formula
 
   def install
     bin.install "sys0", "sys1"
-    doc.install "README.md", "CHANGELOG.md", "GETTING-STARTED.md"
+    doc.install "README.md", "CHANGELOG.md", "docs/GETTING-STARTED.md"
   end
 
   # `brew services start sys1` keeps a node running in the background.
