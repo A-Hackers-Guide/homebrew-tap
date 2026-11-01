@@ -6,28 +6,28 @@ class Sys1 < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.6.0/sys1_0.6.0_darwin_arm64.tar.gz"
-      sha256 "c9d16d7f6e5e55aeb323a65353e0ccd80e7722f76515aba50afcefb29da07e71"
+      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.8.0/sys1_0.8.0_darwin_arm64.tar.gz"
+      sha256 "71d97f043354ccdc4f7cf4ede3c4a2454c8dda98218fe89c2a650e8009c1e63b"
     end
     on_intel do
-      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.6.0/sys1_0.6.0_darwin_amd64.tar.gz"
-      sha256 "cf16d32efc362f046e9d71095f24d7c945e2576aa7df35bdcc524665f157ef3f"
+      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.8.0/sys1_0.8.0_darwin_amd64.tar.gz"
+      sha256 "32b7aed7f590629d5eb0c4c9eca75216cc5457c28921059814f911ac1efe4f80"
     end
   end
 
   on_linux do
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.6.0/sys1_0.6.0_linux_arm64.tar.gz"
-        sha256 "a8a8fe87d9446760085dbd5191da63b6ab800206fee2f2b76ea87e1eba8fb9b4"
+        url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.8.0/sys1_0.8.0_linux_arm64.tar.gz"
+        sha256 "fb00db03d6e21dbd7b17d8a2ee0b9b35f11e5ca1cb50f2f66128ff6fdde6597c"
       else
-        url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.6.0/sys1_0.6.0_linux_armv7.tar.gz"
-        sha256 "912bf66cb09afe199632e418a5c6f67f436c1b710cee3d54b5848dc2f091dec8"
+        url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.8.0/sys1_0.8.0_linux_armv7.tar.gz"
+        sha256 "faa86488e8c1392c126c449e8e527fee541330640734d0c9d6c04a6851c9dc91"
       end
     end
     on_intel do
-      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.6.0/sys1_0.6.0_linux_amd64.tar.gz"
-      sha256 "bb2cbac3c58e48ef3ba89556b8ba0ccebdfd2e5001ccab37283fe50e33094f21"
+      url "https://github.com/A-Hackers-Guide/sys1/releases/download/v0.8.0/sys1_0.8.0_linux_amd64.tar.gz"
+      sha256 "7bc092900492e0e1abf2a8a420b1d70ec4ee45b2f89c631ae5362a37e0203a62"
     end
   end
 
